@@ -123,7 +123,7 @@ public class home extends JFrame implements ActionListener {
         }
         else if (e.getSource()== b5)
         {
-            new  citybill().setVisible(true);
+            new  CityBill().setVisible(true);
             dispose();
         }
     }
