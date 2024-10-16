@@ -13,7 +13,7 @@ public class WaterBill extends JFrame {
 
     private ImageIcon icon;
     private Container background;
-    private JLabel l1, l2, l3;
+    private JLabel l1, l2, l3, imageLabel; // Added imageLabel for the image
     private JTextField f1;
     private JComboBox<String> monthComboBox, amountComboBox;
     private JButton submitButton, paymentButton;
@@ -49,6 +49,14 @@ public class WaterBill extends JFrame {
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
+        // Load and display the water image
+        ImageIcon waterImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/water.jpeg");
+        Image scaledWaterImage = waterImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        imageLabel = new JLabel(new ImageIcon(scaledWaterImage));
+
+        // Add imageLabel to the panel
+        panel.add(imageLabel);
+
         l1 = new JLabel("Enter your house number:");
         Font font = new Font("Arial", Font.BOLD, 16);
         l1.setFont(font);
@@ -80,12 +88,9 @@ public class WaterBill extends JFrame {
 
         JButton BACK = new JButton("BACK");
         BACK.setPreferredSize(new Dimension(200, 30));
-        BACK.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new home().setVisible(true);
-                dispose();
-            }
+        BACK.addActionListener(e -> {
+            new home().setVisible(true);
+            dispose();
         });
 
         panel.add(l1);
@@ -155,5 +160,6 @@ public class WaterBill extends JFrame {
             e.printStackTrace();
         }
     }
+
 
 }

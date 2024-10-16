@@ -5,8 +5,8 @@ import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 public class WifiBill extends JFrame {
     private JLabel l1, l2;
@@ -20,7 +20,6 @@ public class WifiBill extends JFrame {
     private JPanel wifiPanel;
 
     public WifiBill() {
-
         try {
             File input = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/logo.png");
             ImageIcon icon = new ImageIcon(input.getAbsolutePath());
@@ -47,6 +46,13 @@ public class WifiBill extends JFrame {
         panel.setPreferredSize(new Dimension(300, 800));
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
+
+        // Load and resize the WiFi image
+        ImageIcon wifiImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/wifi.png");
+        Image scaledImage = wifiImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); // Adjust size as needed
+        JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
+
+        panel.add(imageLabel); // Add the image label to the panel
 
         l1 = new JLabel("Select your WiFi:");
         Font font = new Font("Arial", Font.BOLD, 16);
@@ -192,4 +198,6 @@ public class WifiBill extends JFrame {
             e.printStackTrace();
         }
     }
+
+
 }

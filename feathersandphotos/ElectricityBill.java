@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import javax.swing.table.DefaultTableModel;
 
 public class ElectricityBill extends JFrame {
@@ -47,6 +45,13 @@ public class ElectricityBill extends JFrame {
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
+        // Load and resize the payment image
+        ImageIcon paymentImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/pay.jpeg");
+        Image scaledImage = paymentImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); // Adjust size as needed
+        JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
+
+        panel.add(imageLabel); // Add the image label to the panel
+
         l1 = new JLabel("Enter your meter number:");
         Font font = new Font("Arial", Font.BOLD, 16);
         l1.setFont(font);
@@ -60,14 +65,12 @@ public class ElectricityBill extends JFrame {
 
         submitButton = new JButton("Submit");
         submitButton.setPreferredSize(new Dimension(200, 30));
-        submitButton.addActionListener(e -> {
-            addDataToTable();
-
-        });
+        submitButton.addActionListener(e -> addDataToTable());
 
         paymentButton = new JButton("Payment Method");
         paymentButton.setPreferredSize(new Dimension(200, 30));
         paymentButton.addActionListener(e -> choosePaymentMethod());
+
         BACK = new JButton("BACK");
         BACK.setPreferredSize(new Dimension(200, 30));
         BACK.addActionListener(new ActionListener() {
@@ -128,9 +131,7 @@ public class ElectricityBill extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     paymentMethod = option;
                     dialog.dispose();
-
-                        openPaymentDetailsDialog(option);
-
+                    openPaymentDetailsDialog(option);
                 }
             });
             dialog.add(button);
@@ -151,8 +152,8 @@ public class ElectricityBill extends JFrame {
 
     private void openPaymentDetailsDialog(String method) {
         JDialog detailsDialog = new JDialog(this, method + " Details", true);
-        detailsDialog.setLayout(new GridLayout(3, 2));
-        detailsDialog.setSize(350, 150);
+        detailsDialog.setLayout(new GridLayout(5, 1));  // Adjusted layout for 5 rows
+        detailsDialog.setSize(350, 300);  // Adjusted size
         detailsDialog.setLocationRelativeTo(this);
 
         JLabel phoneLabel = new JLabel("Phone Number:");
@@ -164,10 +165,7 @@ public class ElectricityBill extends JFrame {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                    detailsDialog.dispose();
-
-
+                detailsDialog.dispose();
             }
         });
 
@@ -175,9 +173,9 @@ public class ElectricityBill extends JFrame {
         detailsDialog.add(phoneField);
         detailsDialog.add(passwordLabel);
         detailsDialog.add(passwordField);
-        detailsDialog.add(new JLabel());  // Empty space
         detailsDialog.add(submitButton);
 
         detailsDialog.setVisible(true);
     }
+
 }

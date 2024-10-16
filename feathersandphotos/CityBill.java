@@ -9,16 +9,16 @@ import java.io.File;
 public class CityBill extends JFrame implements ActionListener {
     private ImageIcon icon;
     private Container background;
-    private JLabel label;
-    private JPanel headerPanel, buttonPanel;
+    private JLabel titleLabel, imageLabel;
+    private JPanel headerPanel, buttonPanel, footerPanel;
 
-    private JButton propertyTaxButton, trafficFineButton, dustBillButton, telephoneButton;
+    private JButton propertyTaxButton, trafficFineButton, dustBillButton, telephoneButton, backButton;
 
     public CityBill() {
         setTitle("City Bill");
-        setSize(800, 800);
+        setSize(800, 600);
         setLocationRelativeTo(null);
-        setResizable(false);
+        setResizable(true); // Allow the window to be resizable
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Set window icon
@@ -43,73 +43,121 @@ public class CityBill extends JFrame implements ActionListener {
         // Set up background container
         background = getContentPane();
         background.setLayout(new BorderLayout());
-        background.setBackground(new Color(255, 165, 0)); // Set background to orange
+        background.setBackground(new Color(245, 245, 245)); // Light gray background for contrast
 
         // Create header panel
         headerPanel = createHeaderPanel();
         background.add(headerPanel, BorderLayout.NORTH);
 
-        // Create button panel and add vertical glue to center it
+        // Create button panel
         buttonPanel = createButtonPanel();
-        background.add(buttonPanel, BorderLayout.CENTER);
+        background.add(buttonPanel, BorderLayout.CENTER); // Center the button panel
+
+        // Create footer panel
+        footerPanel = createFooterPanel();
+        background.add(footerPanel, BorderLayout.SOUTH); // Add footer at the bottom
     }
 
     private JPanel createHeaderPanel() {
         JPanel panel = new JPanel();
-        panel.setBackground(new Color(255, 140, 0)); // Darker shade of orange
+        panel.setBackground(new Color(30, 144, 255)); // Soft blue background
         panel.setLayout(new BorderLayout());
 
-        label = new JLabel("CITY CORPORATION BILL");
-        label.setFont(new Font("Arial", Font.BOLD, 40)); // Increase font size for better visibility
-        label.setForeground(Color.WHITE); // White text color for contrast
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        label.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Add vertical padding
-        panel.add(label, BorderLayout.CENTER);
+        titleLabel = new JLabel("CITY CORPORATION BILL");
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 36)); // Increase font size for better visibility
+        titleLabel.setForeground(Color.WHITE); // White text color for contrast
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Add vertical padding
+
+        // Load and display city corporation image
+        ImageIcon cityImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/citycorporatio.jpg");
+        Image scaledCityImage = cityImage.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
+        imageLabel = new JLabel(new ImageIcon(scaledCityImage));
+        imageLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add some padding
+
+        panel.add(titleLabel, BorderLayout.NORTH);
+        panel.add(imageLabel, BorderLayout.CENTER); // Add the image to the header panel
 
         return panel;
     }
 
     private JPanel createButtonPanel() {
         JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS)); // Use BoxLayout to arrange buttons vertically
-        panel.setBackground(Color.WHITE); // Button panel background white
+        panel.setLayout(new GridBagLayout()); // Use GridBagLayout to center the buttons
+        panel.setBackground(new Color(240, 240, 240)); // Light gray background for button panel
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add padding around the panel
 
         // Create buttons with standardized styling
         propertyTaxButton = createStandardButton("Property Tax");
         trafficFineButton = createStandardButton("Traffic Fine");
         dustBillButton = createStandardButton("Dust Bill");
         telephoneButton = createStandardButton("Telephone");
+        backButton = createStandardButton("Back"); // Create back button
 
-        // Center align buttons
-        propertyTaxButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        trafficFineButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        dustBillButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        telephoneButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // Create a GridBagConstraints instance for centering
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL; // Make buttons stretch horizontally
+        gbc.weightx = 1; // Allow buttons to grow horizontally
+        gbc.insets = new Insets(10, 10, 10, 10); // Padding around buttons
 
-        // Add vertical glue above and below the button panel to center it
-        panel.add(Box.createVerticalGlue());
-        panel.add(propertyTaxButton);
-        panel.add(Box.createVerticalStrut(20)); // Add space between buttons
-        panel.add(trafficFineButton);
-        panel.add(Box.createVerticalStrut(20)); // Add space between buttons
-        panel.add(dustBillButton);
-        panel.add(Box.createVerticalStrut(20)); // Add space between buttons
-        panel.add(telephoneButton);
-        panel.add(Box.createVerticalGlue()); // Add vertical glue below
+        // Add buttons to the panel
+        gbc.gridx = 0; // Column 0
+        gbc.gridy = 0; // Row 0
+        panel.add(propertyTaxButton, gbc);
+
+        gbc.gridy++;
+        panel.add(trafficFineButton, gbc);
+
+        gbc.gridy++;
+        panel.add(dustBillButton, gbc);
+
+        gbc.gridy++;
+        panel.add(telephoneButton, gbc);
+
+        gbc.gridy++;
+        panel.add(backButton, gbc); // Add back button
+
+        return panel;
+    }
+
+    private JPanel createFooterPanel() {
+        JPanel panel = new JPanel();
+        panel.setBackground(new Color(245, 245, 245)); // Light gray background
+        panel.setLayout(new FlowLayout());
+
+        JLabel footerLabel = new JLabel("© 2024 City Corporation. All rights reserved.");
+        footerLabel.setFont(new Font("Arial", Font.ITALIC, 12));
+        footerLabel.setForeground(Color.GRAY);
+        panel.add(footerLabel);
 
         return panel;
     }
 
     private JButton createStandardButton(String text) {
         JButton button = new JButton(text);
-        button.setBackground(new Color(255, 204, 0)); // Light orange for buttons
+        button.setBackground(Color.WHITE); // White background for buttons
         button.setFocusPainted(false);
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        button.setPreferredSize(new Dimension(300, 50)); // Set a standard size for all buttons
-        button.setForeground(Color.BLACK); // Black text for buttons
-        button.setFont(new Font("Arial", Font.BOLD, 24)); // Button text size
+        button.setForeground(new Color(30, 144, 255)); // Soft blue text for buttons
+        button.setFont(new Font("Arial", Font.BOLD, 18)); // Button text size
         button.addActionListener(this); // Add action listener
-        button.setMargin(new Insets(5, 5, 5, 5)); // Add padding to buttons
+        button.setBorder(BorderFactory.createLineBorder(new Color(30, 144, 255), 2)); // Soft blue border
+
+        // Add mouse listeners for hover effects
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                button.setBackground(new Color(30, 144, 255)); // Change to soft blue on hover
+                button.setForeground(Color.WHITE); // Change text color on hover
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                button.setBackground(Color.WHITE); // Reset to original background
+                button.setForeground(new Color(30, 144, 255)); // Reset text color
+            }
+        });
+
         return button;
     }
 
@@ -117,14 +165,20 @@ public class CityBill extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == propertyTaxButton) {
             new PropertyTaxBill().setVisible(true);
+            dispose(); // Close the current window
         } else if (e.getSource() == trafficFineButton) {
             new TrafficFineBill().setVisible(true);
+            dispose(); // Close the current window
         } else if (e.getSource() == dustBillButton) {
             new DustBill().setVisible(true);
+            dispose(); // Close the current window
         } else if (e.getSource() == telephoneButton) {
             new TelephoneBill().setVisible(true);
+            dispose(); // Close the current window
+        } else if (e.getSource() == backButton) { // Handle back button click
+            new home().setVisible(true); // Ensure the Home class is named correctly
+            dispose(); // Close the current window
         }
-        dispose(); // Close the current window
     }
 
 

@@ -10,120 +10,138 @@ public class home extends JFrame implements ActionListener {
     private ImageIcon icon;
     private Container background;
     private JLabel label;
-    private JPanel panel, bpanel;
+    private JPanel panel, bpanel, imagePanel;
 
-    private JButton b1, b2, b3, b4,b5;
+    private JButton b1, b2, b3, b4, b5;
 
     public home() {
+        // Set the application icon
         try {
             File input = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
-
         } catch (Exception e) {
-            System.out.println(" ERROR IS IN  " + e.getMessage());
+            System.out.println("ERROR IS IN " + e.getMessage());
         }
+
+        // Set JFrame properties
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(null);
-        setTitle(" Home Page ");
-        setSize(800, 800);
-        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+        setTitle("Home Page");
+        setSize(800, 600);
+        setLocationRelativeTo(null); // Center window on screen
         setResizable(false);
+
+        // Call method to set up background and layout
         Background();
     }
 
     void Background() {
         background = getContentPane();
-        background.setLayout(null);
-        background.setBackground(new Color(666426294));
+        background.setLayout(new BorderLayout());
+        background.setBackground(new Color(255, 255, 255)); // White background
 
+        // Panel for the header
         panel = new JPanel();
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new BorderLayout());
-        panel.setBounds(0, 0, 800, 100);
+        panel.setPreferredSize(new Dimension(800, 100));
 
+        // Label for the header
         label = new JLabel("WELCOME TO BILL PAYMENT SYSTEM");
-        label.setBounds(15, 10, 800, 60);
         label.setForeground(Color.BLACK);
-        Font font = new Font("Arial ", Font.BOLD, 25);
+        Font font = new Font("Arial", Font.BOLD, 25);
         label.setFont(font);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label, BorderLayout.CENTER);
 
+        // Image panel for the picture
+        imagePanel = new JPanel();
+        imagePanel.setBackground(Color.WHITE);
+        imagePanel.setLayout(new BorderLayout());
+
+        // Load and scale the image
+        ImageIcon homeImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/home1.png");
+        Image img = homeImage.getImage(); // Get the image
+        Image scaledImage = img.getScaledInstance(400, 300, Image.SCALE_SMOOTH); // Scale image to 400x300
+        JLabel imageLabel = new JLabel(new ImageIcon(scaledImage)); // Create label with scaled image
+        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        imagePanel.add(imageLabel, BorderLayout.CENTER);
+
+        // Panel for buttons
         bpanel = new JPanel();
-        bpanel.setBounds(0, 101, 800, 50);
+        bpanel.setPreferredSize(new Dimension(800, 50));
         bpanel.setLayout(new FlowLayout());
-        bpanel.setBackground(Color.white);
+        bpanel.setBackground(Color.WHITE);
 
-        b1 = new JButton(" ELECTRICITY BILL ");
-        b1.setBackground(Color.white);
-        b1.setFocusPainted(false);
-        b1.setFocusable(true);
-        b1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        b1.setBorderPainted(false);
-        b1.addActionListener(this);
+        // Electricity Bill button (Red background, white text)
+        b1 = new JButton("ELECTRICITY BILL");
+        b1.setBackground(Color.RED);
+        b1.setForeground(Color.WHITE);
+        customizeButton(b1);
 
-        b2 = new JButton(" GAS BILL ");
-        b2.setBackground(Color.white);
-        b2.setFocusPainted(false);
-        b2.setFocusable(true);
-        b2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        b2.setBorderPainted(false);
-        b2.addActionListener(this);
+        // Gas Bill button (Green background, white text)
+        b2 = new JButton("GAS BILL");
+        b2.setBackground(Color.GREEN);
+        b2.setForeground(Color.WHITE);
+        customizeButton(b2);
 
-        b3 = new JButton(" WATER BILL ");
-        b3.setBackground(Color.white);
-        b3.setFocusPainted(false);
-        b3.setFocusable(true);
-        b3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        b3.setBorderPainted(false);
-        b3.addActionListener(this);
+        // Water Bill button (Blue background, white text)
+        b3 = new JButton("WATER BILL");
+        b3.setBackground(Color.BLUE);
+        b3.setForeground(Color.WHITE);
+        customizeButton(b3);
 
-        b4 = new JButton(" WIFI BILL ");
-        b4.setBackground(Color.white);
-        b4.setFocusPainted(false);
-        b4.setFocusable(true);
-        b4.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        b4.setBorderPainted(false);
-        b4.addActionListener(this);
+        // Wifi Bill button (Orange background, white text)
+        b4 = new JButton("WIFI BILL");
+        b4.setBackground(Color.ORANGE);
+        b4.setForeground(Color.WHITE);
+        customizeButton(b4);
 
-        b5 = new JButton("CITY CORPORATION ");
-        b5.setBackground(Color.white);
-        b5.setFocusPainted(false);
-        b5.setFocusable(true);
-        b5.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        b5.setBorderPainted(false);
-        b5.addActionListener(this);
+        // City Corporation button (Purple background, white text)
+        b5 = new JButton("CITY CORPORATION");
+        b5.setBackground(new Color(128, 0, 128)); // Custom purple
+        b5.setForeground(Color.WHITE);
+        customizeButton(b5);
 
+        // Add buttons to the panel
         bpanel.add(b1);
         bpanel.add(b2);
         bpanel.add(b3);
         bpanel.add(b4);
         bpanel.add(b5);
 
-        background.add(panel);
-        background.add(bpanel);
+        // Add components to the background
+        background.add(panel, BorderLayout.NORTH);
+        background.add(imagePanel, BorderLayout.CENTER); // Center the image
+        background.add(bpanel, BorderLayout.SOUTH); // Place buttons at the bottom
     }
 
+    // Helper method to customize button properties
+    private void customizeButton(JButton button) {
+        button.setFocusPainted(false);
+        button.setFocusable(true);
+        button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        button.setBorderPainted(false);
+        button.addActionListener(this);
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == b1) {
-            new ElectricityBill().setVisible(true);
+            new ElectricityBill().setVisible(true); // Open ElectricityBill frame
             dispose();
         } else if (e.getSource() == b2) {
-            new GasBill().setVisible(true);
+            new GasBill().setVisible(true); // Open GasBill frame
             dispose();
         } else if (e.getSource() == b3) {
-            new WaterBill().setVisible(true);  // Connect to WaterBill
+            new WaterBill().setVisible(true); // Open WaterBill frame
             dispose();
         } else if (e.getSource() == b4) {
-            new WifiBill().setVisible(true);  // Connect to WifiBill
+            new WifiBill().setVisible(true); // Open WifiBill frame
             dispose();
-        }
-        else if (e.getSource()== b5)
-        {
-            new  CityBill().setVisible(true);
+        } else if (e.getSource() == b5) {
+            new CityBill().setVisible(true); // Open CityBill frame
             dispose();
         }
     }

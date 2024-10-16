@@ -47,6 +47,13 @@ public class GasBill extends JFrame {
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
+        // Load and resize the gas image
+        ImageIcon gasImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/Gas.png");
+        Image scaledImage = gasImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); // Adjust size as needed
+        JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
+
+        panel.add(imageLabel); // Add the image label to the panel
+
         l1 = new JLabel("Enter your meter number:");
         Font font = new Font("Arial", Font.BOLD, 16);
         l1.setFont(font);
@@ -69,8 +76,8 @@ public class GasBill extends JFrame {
         paymentButton.setPreferredSize(new Dimension(200, 30));
         paymentButton.addActionListener(e -> choosePaymentMethod());
 
-      JButton  BACK=new JButton("BACK");
-        BACK.setPreferredSize(new Dimension(200,30));
+        JButton BACK = new JButton("BACK");
+        BACK.setPreferredSize(new Dimension(200, 30));
         BACK.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -104,7 +111,7 @@ public class GasBill extends JFrame {
 
         // Simple calculation for the amount based on gas units consumed
         int units = Integer.parseInt(gasUnits);
-        String amount = (units * 1.5)+ " TK";
+        String amount = (units * 1.5) + " TK";
 
         tableModel.addRow(new Object[]{meterNumber, gasUnits, amount, paymentMethod});
 
@@ -147,5 +154,6 @@ public class GasBill extends JFrame {
             e.printStackTrace();
         }
     }
+
 
 }
