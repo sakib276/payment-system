@@ -26,8 +26,8 @@ public class Datastore {
         String userEmail = String.join(",", escapeSpecialCharacters(email), escapeSpecialCharacters(password));
 
         // Write user data to the CSV files
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/server/user_data.csv", true));
-             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/server/user_email.csv", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("E:/ELECTIC BILL PAYMEM/payment-system/server/user_data.csv", true));
+             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("E:/ELECTIC BILL PAYMEM/payment-system/server/user_email.csv", true))) {
 
             writer.write(userData);
             writer.newLine();
@@ -60,7 +60,7 @@ public class Datastore {
 
     public static boolean checkUserCredentials(String email, String password) {
         String line;
-        try (BufferedReader reader = new BufferedReader(new FileReader("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/server/user_email.csv"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("E:/ELECTIC BILL PAYMEM/payment-system/server/user_email.csv"))) {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 2) {
