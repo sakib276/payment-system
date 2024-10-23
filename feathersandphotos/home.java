@@ -18,6 +18,7 @@ public class home extends JFrame implements ActionListener {
         // Set the application icon
         try {
             File input = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/logo.png");
+//            File input = new File("logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
         } catch (Exception e) {

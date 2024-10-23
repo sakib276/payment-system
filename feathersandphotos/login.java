@@ -48,6 +48,8 @@ public class login extends JFrame implements ActionListener {
         try {
 
             File file = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/login.jpg");
+//            File file = new File("./login.jpg");
+
             login = new ImageIcon(file.getAbsolutePath());
 
             s1 = new JLabel(login);
