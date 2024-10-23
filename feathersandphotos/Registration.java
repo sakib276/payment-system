@@ -80,18 +80,7 @@ private JRadioButton male,female,other,m,um;
         n.setVerticalAlignment(SwingConstants.CENTER);
         panel.add(n,BorderLayout.CENTER);
 
-       /* try
-        {
-            File fi=new File("E://ELECTIC BILL PAYMEM//Electric bill generate system//src//feathersandphotos//registration background.jpeg");
-            pht= new ImageIcon(fi.getAbsolutePath());
-            ph= new JLabel(pht);
-            ph.setBounds(0,0,pht.getIconWidth(),pht.getIconHeight());
 
-
-        }catch(Exception e)
-        {
-            System.out.println(" error is in "+e.getMessage());
-        } */
 
         n1=new JLabel(" Name* ");
         try
@@ -351,7 +340,7 @@ private JRadioButton male,female,other,m,um;
         background.add( pas);
         background.add( n15);
         background.add( copas);
-        //  background.add(ph);
+
 
 
 
@@ -362,10 +351,10 @@ private JRadioButton male,female,other,m,um;
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sub) {
-            // Retrieve input values
+
             String name = nameframe.getText();
             String meterNo = meternum.getText();
-            String dob = age.getText(); // Ensure this is in yyyy-MM-dd format
+            String dob = age.getText();
             String nidNo = id.getText();
             String email = mail.getText();
             String phone = phn.getText();
@@ -376,11 +365,11 @@ private JRadioButton male,female,other,m,um;
             String password = new String(pas.getPassword());
             String confirmPassword = new String(copas.getPassword());
 
-            // Determine selected gender and status
+
             String gender = male.isSelected() ? "Male" : female.isSelected() ? "Female" : "Other";
             String status = m.isSelected() ? "Married" : um.isSelected() ? "Unmarried" : "";
 
-            // Validate fields
+
             boolean isValid = true;
             StringBuilder errorMessage = new StringBuilder("Please correct the following errors:\n");
 
@@ -418,20 +407,20 @@ private JRadioButton male,female,other,m,um;
             }
 
             if (isValid) {
-                // Save user data
+
                 Datastore datastore = new Datastore();
                 boolean isSaved = datastore.saveUser(name, meterNo, dob, nidNo, email, phone, district, division, religion, addressText, gender, status, password);
 
                 if (isSaved) {
 
-                    // Optionally, clear fields or navigate to another screen
+
                     new login().setVisible(true);
                     dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "Error saving data. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
-                // Show error messages
+
                 JOptionPane.showMessageDialog(this, errorMessage.toString(), "Validation Errors", JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getSource() == can) {

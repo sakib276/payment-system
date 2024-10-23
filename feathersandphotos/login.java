@@ -17,11 +17,11 @@ public class login extends JFrame implements ActionListener {
     private JPasswordField p1;
 
     private JButton lb,rb;
-   // private JPanel p1;
+
 
     public login() {
         try {
-            //changed here
+
             File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
@@ -46,9 +46,9 @@ public class login extends JFrame implements ActionListener {
         background.setBackground(Color.white);
 
         try {
-//updated that image path
+
             File file = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/login.jpg");
-//            File file = new File("./login.jpg");
+
 
             login = new ImageIcon(file.getAbsolutePath());
 
@@ -60,9 +60,9 @@ public class login extends JFrame implements ActionListener {
         } catch (Exception e) {
             System.out.println("Error loading background image: " + e.getMessage());
         }
-            // panel
-//        p1 =new JPanel();
-//        p1.setBounds(0,login.getIconHeight()+10,500,600);
+
+
+
         s2= new JLabel("Email");
         try {
             Font f1= new Font("Thin 100",Font.BOLD,30);
@@ -121,7 +121,7 @@ public class login extends JFrame implements ActionListener {
 
 
 
-// background
+
        background.add(s2);
        background.add(f1);
        background.add(s3);
