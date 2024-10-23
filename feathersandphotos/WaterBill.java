@@ -23,7 +23,7 @@ public class WaterBill extends JFrame {
 
     public WaterBill() {
         try {
-            File input = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/logo.png");
+            File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
         } catch (Exception e) {
@@ -50,7 +50,7 @@ public class WaterBill extends JFrame {
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
         // Load and display the water image
-        ImageIcon waterImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/water.jpeg");
+        ImageIcon waterImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/water.jpeg");
         Image scaledWaterImage = waterImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         imageLabel = new JLabel(new ImageIcon(scaledWaterImage));
 

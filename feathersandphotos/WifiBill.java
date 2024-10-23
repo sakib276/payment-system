@@ -21,7 +21,7 @@ public class WifiBill extends JFrame {
 
     public WifiBill() {
         try {
-            File input = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/logo.png");
+            File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/logo.png");
             ImageIcon icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class WifiBill extends JFrame {
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
         // Load and resize the WiFi image
-        ImageIcon wifiImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/wifi.png");
+        ImageIcon wifiImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/wifi.png");
         Image scaledImage = wifiImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); // Adjust size as needed
         JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
 

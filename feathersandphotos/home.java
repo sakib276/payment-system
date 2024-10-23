@@ -17,7 +17,7 @@ public class home extends JFrame implements ActionListener {
     public home() {
         // Set the application icon
         try {
-            File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/home1.png");
+            File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/logo.png");
 //            File input = new File("logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
@@ -62,7 +62,7 @@ public class home extends JFrame implements ActionListener {
         imagePanel.setLayout(new BorderLayout());
 
         // Load and scale the image
-        ImageIcon homeImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/home1.png");
+        ImageIcon homeImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/home1.png");
         Image img = homeImage.getImage(); // Get the image
         Image scaledImage = img.getScaledInstance(400, 300, Image.SCALE_SMOOTH); // Scale image to 400x300
         JLabel imageLabel = new JLabel(new ImageIcon(scaledImage)); // Create label with scaled image
