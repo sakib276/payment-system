@@ -12,13 +12,12 @@ public class home extends JFrame implements ActionListener {
     private JLabel label;
     private JPanel panel, bpanel, imagePanel;
 
-    private JButton b1, b2, b3, b4, b5;
+    private JButton b1, b2, b3, b4, b5, exitButton; // Added exitButton
 
     public home() {
         // Set the application icon
         try {
             File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/logo.png");
-//            File input = new File("logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
         } catch (Exception e) {
@@ -75,35 +74,41 @@ public class home extends JFrame implements ActionListener {
         bpanel.setLayout(new FlowLayout());
         bpanel.setBackground(Color.WHITE);
 
-        // Electricity Bill button (Red background, white text)
+        // Electricity Bill button
         b1 = new JButton("ELECTRICITY BILL");
         b1.setBackground(Color.RED);
         b1.setForeground(Color.WHITE);
         customizeButton(b1);
 
-        // Gas Bill button (Green background, white text)
+        // Gas Bill button
         b2 = new JButton("GAS BILL");
         b2.setBackground(Color.GREEN);
         b2.setForeground(Color.WHITE);
         customizeButton(b2);
 
-        // Water Bill button (Blue background, white text)
+        // Water Bill button
         b3 = new JButton("WATER BILL");
         b3.setBackground(Color.BLUE);
         b3.setForeground(Color.WHITE);
         customizeButton(b3);
 
-        // Wifi Bill button (Orange background, white text)
+        // Wifi Bill button
         b4 = new JButton("WIFI BILL");
         b4.setBackground(Color.ORANGE);
         b4.setForeground(Color.WHITE);
         customizeButton(b4);
 
-        // City Corporation button (Purple background, white text)
+        // City Corporation button
         b5 = new JButton("CITY CORPORATION");
         b5.setBackground(new Color(128, 0, 128)); // Custom purple
         b5.setForeground(Color.WHITE);
         customizeButton(b5);
+
+        // Exit button (Gray background, white text)
+        exitButton = new JButton("EXIT");
+        exitButton.setBackground(Color.GRAY);
+        exitButton.setForeground(Color.WHITE);
+        customizeButton(exitButton);
 
         // Add buttons to the panel
         bpanel.add(b1);
@@ -111,6 +116,7 @@ public class home extends JFrame implements ActionListener {
         bpanel.add(b3);
         bpanel.add(b4);
         bpanel.add(b5);
+        bpanel.add(exitButton); // Add the exit button
 
         // Add components to the background
         background.add(panel, BorderLayout.NORTH);
@@ -144,6 +150,8 @@ public class home extends JFrame implements ActionListener {
         } else if (e.getSource() == b5) {
             new CityBill().setVisible(true); // Open CityBill frame
             dispose();
+        } else if (e.getSource() == exitButton) {
+            System.exit(0); // Exit the application
         }
     }
 }
