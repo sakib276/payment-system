@@ -21,7 +21,7 @@ public class GasBill extends JFrame {
 
     public GasBill() {
         try {
-            File input = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/logo.png");
+            File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class GasBill extends JFrame {
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
         // Load and resize the gas image
-        ImageIcon gasImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/Gas.png");
+        ImageIcon gasImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/Gas.png");
         Image scaledImage = gasImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); // Adjust size as needed
         JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
 
