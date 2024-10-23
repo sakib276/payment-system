@@ -24,7 +24,7 @@ public class CityBill extends JFrame implements ActionListener {
         
         setIconImage(loadIcon());
 
-        // Initialize layout
+
         initializeComponents();
     }
 
@@ -39,12 +39,12 @@ public class CityBill extends JFrame implements ActionListener {
         }
     }
 
-    //just checking whether the fork works or not
+
     private void initializeComponents() {
         // Set up background container
         background = getContentPane();
         background.setLayout(new BorderLayout());
-        background.setBackground(new Color(245, 245, 245)); // Light gray background for contrast
+        background.setBackground(new Color(245, 245, 245));
 
         // Create header panel
         headerPanel = createHeaderPanel();
@@ -52,58 +52,58 @@ public class CityBill extends JFrame implements ActionListener {
 
         // Create button panel
         buttonPanel = createButtonPanel();
-        background.add(buttonPanel, BorderLayout.CENTER); // Center the button panel
+        background.add(buttonPanel, BorderLayout.CENTER);
 
         // Create footer panel
         footerPanel = createFooterPanel();
-        background.add(footerPanel, BorderLayout.SOUTH); // Add footer at the bottom
+        background.add(footerPanel, BorderLayout.SOUTH);
     }
 
     private JPanel createHeaderPanel() {
         JPanel panel = new JPanel();
-        panel.setBackground(new Color(30, 144, 255)); // Soft blue background
+        panel.setBackground(new Color(30, 144, 255));
         panel.setLayout(new BorderLayout());
 
         titleLabel = new JLabel("CITY CORPORATION BILL");
-        titleLabel.setFont(new Font("Arial", Font.BOLD, 36)); // Increase font size for better visibility
-        titleLabel.setForeground(Color.WHITE); // White text color for contrast
+        titleLabel.setFont(new Font("Arial", Font.BOLD, 36));
+        titleLabel.setForeground(Color.WHITE);
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Add vertical padding
+        titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0));
 
         // Load and display city corporation image
         ImageIcon cityImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/citycorporatio.jpg");
         Image scaledCityImage = cityImage.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
         imageLabel = new JLabel(new ImageIcon(scaledCityImage));
-        imageLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add some padding
+        imageLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         panel.add(titleLabel, BorderLayout.NORTH);
-        panel.add(imageLabel, BorderLayout.CENTER); // Add the image to the header panel
+        panel.add(imageLabel, BorderLayout.CENTER);
 
         return panel;
     }
 
     private JPanel createButtonPanel() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout()); // Use GridBagLayout to center the buttons
-        panel.setBackground(new Color(240, 240, 240)); // Light gray background for button panel
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add padding around the panel
+        panel.setLayout(new GridBagLayout());
+        panel.setBackground(new Color(240, 240, 240));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // Create buttons with standardized styling
+
         propertyTaxButton = createStandardButton("Property Tax");
         trafficFineButton = createStandardButton("Traffic Fine");
         dustBillButton = createStandardButton("Dust Bill");
         telephoneButton = createStandardButton("Telephone");
-        backButton = createStandardButton("Back"); // Create back button
+        backButton = createStandardButton("Back");
 
-        // Create a GridBagConstraints instance for centering
+
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL; // Make buttons stretch horizontally
-        gbc.weightx = 1; // Allow buttons to grow horizontally
-        gbc.insets = new Insets(10, 10, 10, 10); // Padding around buttons
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.weightx = 1;
+        gbc.insets = new Insets(10, 10, 10, 10);
 
-        // Add buttons to the panel
-        gbc.gridx = 0; // Column 0
-        gbc.gridy = 0; // Row 0
+
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         panel.add(propertyTaxButton, gbc);
 
         gbc.gridy++;
@@ -116,14 +116,14 @@ public class CityBill extends JFrame implements ActionListener {
         panel.add(telephoneButton, gbc);
 
         gbc.gridy++;
-        panel.add(backButton, gbc); // Add back button
+        panel.add(backButton, gbc);
 
         return panel;
     }
 
     private JPanel createFooterPanel() {
         JPanel panel = new JPanel();
-        panel.setBackground(new Color(245, 245, 245)); // Light gray background
+        panel.setBackground(new Color(245, 245, 245));
         panel.setLayout(new FlowLayout());
 
         JLabel footerLabel = new JLabel("© 2024 City Corporation. All rights reserved.");
@@ -136,26 +136,26 @@ public class CityBill extends JFrame implements ActionListener {
 
     private JButton createStandardButton(String text) {
         JButton button = new JButton(text);
-        button.setBackground(Color.WHITE); // White background for buttons
+        button.setBackground(Color.WHITE);
         button.setFocusPainted(false);
         button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        button.setForeground(new Color(30, 144, 255)); // Soft blue text for buttons
-        button.setFont(new Font("Arial", Font.BOLD, 18)); // Button text size
+        button.setForeground(new Color(30, 144, 255));
+        button.setFont(new Font("Arial", Font.BOLD, 18));
         button.addActionListener(this); // Add action listener
-        button.setBorder(BorderFactory.createLineBorder(new Color(30, 144, 255), 2)); // Soft blue border
+        button.setBorder(BorderFactory.createLineBorder(new Color(30, 144, 255), 2));
 
-        // Add mouse listeners for hover effects
+
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                button.setBackground(new Color(30, 144, 255)); // Change to soft blue on hover
-                button.setForeground(Color.WHITE); // Change text color on hover
+                button.setBackground(new Color(30, 144, 255));
+                button.setForeground(Color.WHITE);
             }
 
             @Override
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                button.setBackground(Color.WHITE); // Reset to original background
-                button.setForeground(new Color(30, 144, 255)); // Reset text color
+                button.setBackground(Color.WHITE);
+                button.setForeground(new Color(30, 144, 255));
             }
         });
 
@@ -176,9 +176,9 @@ public class CityBill extends JFrame implements ActionListener {
         } else if (e.getSource() == telephoneButton) {
             new TelephoneBill().setVisible(true);
             dispose(); // Close the current window
-        } else if (e.getSource() == backButton) { // Handle back button click
-            new home().setVisible(true); // Ensure the Home class is named correctly
-            dispose(); // Close the current window
+        } else if (e.getSource() == backButton) {
+            new home().setVisible(true);
+            dispose();
         }
     }
 
