@@ -13,7 +13,7 @@ public class WaterBill extends JFrame {
 
     private ImageIcon icon;
     private Container background;
-    private JLabel l1, l2, l3, imageLabel; // Added imageLabel for the image
+    private JLabel l1, l2, l3, imageLabel;
     private JTextField f1;
     private JComboBox<String> monthComboBox, amountComboBox;
     private JButton submitButton, paymentButton;
@@ -49,12 +49,12 @@ public class WaterBill extends JFrame {
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
-        // Load and display the water image
+
         ImageIcon waterImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/water.jpeg");
         Image scaledWaterImage = waterImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         imageLabel = new JLabel(new ImageIcon(scaledWaterImage));
 
-        // Add imageLabel to the panel
+
         panel.add(imageLabel);
 
         l1 = new JLabel("Enter your house number:");
@@ -121,10 +121,10 @@ public class WaterBill extends JFrame {
 
         tableModel.addRow(new Object[]{houseNumber, month, amount, paymentMethod});
 
-        // Clear the input fields after submission
+
         f1.setText("");
         amountComboBox.setSelectedIndex(0);
-        paymentMethod = "Not Selected";  // Reset payment method after submission
+        paymentMethod = "Not Selected";
     }
 
     private void choosePaymentMethod() {
