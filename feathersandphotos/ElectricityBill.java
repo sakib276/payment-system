@@ -46,7 +46,7 @@ public class ElectricityBill extends JFrame {
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
         // Load and resize the payment image
-        ImageIcon paymentImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/pay.jpeg");
+        ImageIcon paymentImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/pay.jpeg");
         Image scaledImage = paymentImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); // Adjust size as needed
         JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
 
