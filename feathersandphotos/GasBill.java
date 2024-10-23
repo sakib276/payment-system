@@ -47,12 +47,12 @@ public class GasBill extends JFrame {
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
-        // Load and resize the gas image
+
         ImageIcon gasImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/Gas.png");
         Image scaledImage = gasImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); // Adjust size as needed
         JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
 
-        panel.add(imageLabel); // Add the image label to the panel
+        panel.add(imageLabel);
 
         l1 = new JLabel("Enter your meter number:");
         Font font = new Font("Arial", Font.BOLD, 16);
@@ -115,7 +115,7 @@ public class GasBill extends JFrame {
 
         tableModel.addRow(new Object[]{meterNumber, gasUnits, amount, paymentMethod});
 
-        // Clear the text fields after submission
+
         f1.setText("");
         f2.setText("");
         paymentMethod = "Not Selected";  // Reset payment method after submission

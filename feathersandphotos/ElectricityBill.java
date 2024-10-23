@@ -45,12 +45,12 @@ public class ElectricityBill extends JFrame {
         panel.setBackground(Color.LIGHT_GRAY);
         panel.setLayout(new FlowLayout(FlowLayout.CENTER, 6, 14));
 
-        // Load and resize the payment image
+
         ImageIcon paymentImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/pay.jpeg");
         Image scaledImage = paymentImage.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH); // Adjust size as needed
         JLabel imageLabel = new JLabel(new ImageIcon(scaledImage));
 
-        panel.add(imageLabel); // Add the image label to the panel
+        panel.add(imageLabel);
 
         l1 = new JLabel("Enter your meter number:");
         Font font = new Font("Arial", Font.BOLD, 16);
@@ -104,16 +104,16 @@ public class ElectricityBill extends JFrame {
         String meterNumber = f1.getText();
         String unitNumber = f2.getText();
 
-        // Simple calculation for the amount based on unit number
+
         int units = Integer.parseInt(unitNumber);
-        String amount = (units * 10) + " TK";  // Example: $0.5 per unit
+        String amount = (units * 10) + " TK";
 
         tableModel.addRow(new Object[]{meterNumber, unitNumber, amount, paymentMethod});
 
-        // Clear the text fields after submission
+
         f1.setText("");
         f2.setText("");
-        paymentMethod = "Not Selected";  // Reset payment method after submission
+        paymentMethod = "Not Selected";
     }
 
     private void choosePaymentMethod() {
