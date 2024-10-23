@@ -18,10 +18,10 @@ public class CityBill extends JFrame implements ActionListener {
         setTitle("City Bill");
         setSize(800, 600);
         setLocationRelativeTo(null);
-        setResizable(true); // Allow the window to be resizable
+        setResizable(true); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Set window icon
+        
         setIconImage(loadIcon());
 
         // Initialize layout
