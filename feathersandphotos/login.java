@@ -95,12 +95,16 @@ public class login extends JFrame implements ActionListener {
         lb.setBounds(200,login.getIconHeight()+270,120,50);
         lb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         lb.setFocusPainted(false);
+        lb.setBackground(Color.RED);
+        lb.setForeground(Color.WHITE);
         lb.addActionListener(this);
 
         rb = new JButton(" Registration ");
         rb.setBounds(200,login.getIconHeight()+330,120,50);
         rb.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         rb.setFocusPainted(false);
+        rb.setBackground( Color.BLUE);
+        rb.setForeground(Color.WHITE);
         rb.addActionListener(this);
         
 
