@@ -21,8 +21,8 @@ public class login extends JFrame implements ActionListener {
 
     public login() {
         try {
-
-            File input = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/logo.png");
+            //changed here
+            File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             setIconImage(icon.getImage());
         } catch (Exception e) {
@@ -46,8 +46,8 @@ public class login extends JFrame implements ActionListener {
         background.setBackground(Color.white);
 
         try {
-
-            File file = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/login.jpg");
+//updated that image path
+            File file = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/login.jpg");
 //            File file = new File("./login.jpg");
 
             login = new ImageIcon(file.getAbsolutePath());
