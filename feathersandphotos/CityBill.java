@@ -126,10 +126,7 @@ public class CityBill extends JFrame implements ActionListener {
         panel.setBackground(new Color(245, 245, 245));
         panel.setLayout(new FlowLayout());
 
-        JLabel footerLabel = new JLabel("© 2024 City Corporation. All rights reserved.");
-        footerLabel.setFont(new Font("Arial", Font.ITALIC, 12));
-        footerLabel.setForeground(Color.GRAY);
-        panel.add(footerLabel);
+        
 
         return panel;
     }
