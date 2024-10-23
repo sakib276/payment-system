@@ -30,7 +30,7 @@ public class CityBill extends JFrame implements ActionListener {
 
     private Image loadIcon() {
         try {
-            File input = new File("E:/ELECTIC BILL PAYMEM/Electric bill generate system/src/feathersandphotos/logo.png");
+            File input = new File("E:/ELECTIC BILL PAYMEM/payment-system/img file/logo.png");
             icon = new ImageIcon(input.getAbsolutePath());
             return icon.getImage();
         } catch (Exception e) {
@@ -71,7 +71,7 @@ public class CityBill extends JFrame implements ActionListener {
         titleLabel.setBorder(BorderFactory.createEmptyBorder(20, 0, 20, 0)); // Add vertical padding
 
         // Load and display city corporation image
-        ImageIcon cityImage = new ImageIcon("E:/utility project/payment-system/feathersandphotos/citycorporatio.jpg");
+        ImageIcon cityImage = new ImageIcon("E:/ELECTIC BILL PAYMEM/payment-system/img file/citycorporatio.jpg");
         Image scaledCityImage = cityImage.getImage().getScaledInstance(800, 200, Image.SCALE_SMOOTH);
         imageLabel = new JLabel(new ImageIcon(scaledCityImage));
         imageLabel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Add some padding
