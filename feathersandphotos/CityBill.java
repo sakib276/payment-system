@@ -39,6 +39,7 @@ public class CityBill extends JFrame implements ActionListener {
         }
     }
 
+    //just checking whether the fork works or not
     private void initializeComponents() {
         // Set up background container
         background = getContentPane();
